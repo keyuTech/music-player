@@ -1,5 +1,4 @@
 body {
-    width: 1000px;
     margin: 0 auto;
     height: 100%;
     background-image: url(http://p1.music.126.net/a50rahhFa0Y7uWf52TXfCw==/765260103019177.jpg);
@@ -56,13 +55,13 @@ main {
     margin-right: 36px;
 }
 .progress-bar {
-    width: 350px;
+    width: 65%;
     margin-left: 110px;
     cursor: pointer;
     position: relative;
 }
 .progress-bar .bar {
-    width: 350px;
+    width: 100%;
     height: 14px;
     margin-top: 5px;
     background-color: #222;
