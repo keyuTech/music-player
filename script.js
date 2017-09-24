@@ -3,13 +3,21 @@
 
 var currentIndex = 0
 var musicPlay = new Audio()
-musicPlay.autoplay() = true
+musicPlay.autoplay = true
 
 getMusicList(function(list){
     loadMusic(list[currentIndex])
 })
 
-function $(seletor){
+musicPlay.ontimeupdate = function(){
+    $('.progress-bar .current').style.width = (this.currentTime/this.duration*100) + '%'
+    console.log($('.progress-bar .current').style.width)
+    var min = Math.floor(this.currentTime/60)
+    var sec = Math.floor(this.currentTime%60)
+    sec < 10 ? '0' + sec : '' + sec
+}
+
+function $(selector){
     return document.querySelector(selector)
 }
 function getMusicList(callback){
@@ -29,7 +37,7 @@ function getMusicList(callback){
 }
 
 function loadMusic(musicObj){
-    console.log('begin play', musicObj)
+    console.log('musicPlay begin play', musicPlay)
     musicPlay.src = musicObj.src
     $('.infor .name').innerText = musicObj.title
     $('.infor .author').innerText = musicObj.author
