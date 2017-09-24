@@ -19,14 +19,17 @@ musicPlay.onplay = function(){
         var min = Math.floor(musicPlay.currentTime/60)
         var sec = Math.floor(musicPlay.currentTime%60) + ''
         sec = sec.length === 2 ? sec : '0' + sec
-        $('.progress-bar .time .current-time').innerText = min + ':' + sec
+        var sum = min + '：' + sec
+        console.log($('.progress-bar .time .current-time'))
+        console.log($('.progress-bar .time .current-time').innerText)
+        $('.play .time').innerText = sum
     },1000)
 }
 musicPlay.onpause = function(){
     clearInterval(clock)
 }
 
-$('.control .playing').addEventListenner('click', function(){
+$('.control .playing').addEventListener('click', function(){
     audio.pause()
 }, false)
 
