@@ -11,22 +11,26 @@
 </head>
 <body>
     <div class="background-img"></div>
-    <div class="player">
-        <div class="infor">
-            <p class="name">SONG</p>
-            <p class="author">AUTHOR</p>
-        </div>
-        <div class="play">
-            <div class="control">
-                <span class="back"><i class="fa fa-step-backward"></i></span>
-                <span class="playing"><i class="fa fa-play"></i></span>
-                <span class="forward"><i class="fa fa-step-forward"></i></span>
+    <main>
+        <div class="player">
+            <div class="infor">
+                <p class="name">SONG</p>
+                <p class="author">AUTHOR</p>
             </div>
-            <div class="progress-bar">
-                <div class="total"></div>
-                <div class="current"></div>
+            <div class="play">
+                <div class="control">
+                    <span class="back"><i class="fa fa-step-backward"></i></span>
+                    <span class="playing"><i class="fa fa-play"></i></span>
+                    <span class="forward"><i class="fa fa-step-forward"></i></span>
+                </div>
+                <div class="time"><span class="current-time">0:00</span></div>
+                <div class="progress-bar">
+                    <div class="bar">
+                        <div class="total"></div>
+                        <div class="current"></div>
+                    </div>
+                </div>
             </div>
-            <div class="time"><span class="current-time">0:00</span></div>
         </div>
         <div class="music-list">
             <ul class="list">
@@ -38,7 +42,8 @@
                 <li>なんでもないや - RADWIMPS</li>
             </ul>
         </div>
-    </div>
+    </main>
+    
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

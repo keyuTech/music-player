@@ -7,7 +7,7 @@ body {
     background-position: center;
     background-size: cover;
 }
-.player {
+main {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,41 +18,69 @@ body {
 }
 .infor p {
     display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .infor .name {
     font-size: 24px;
     font-family: Helvetica, Arial, sans-serif;
 }
 .play {
+    width: 600px;
     height: 2.5em;
     color: #fff;
     background: #333;
+    padding: 13px;
     position: relative;
     z-index: 1;
 }
 .control {
-    display: table;
+    cursor: pointer;
 }
 .control span{
     float: left;
+    font-size: 20px;
+}
+.control .back {
     margin-left: 10px;
-    font-size: 24px;
+}
+.control .playing, 
+.control .forward {
+    margin-left: 20px;
 }
 .control span:hover {
     background-color: #222;
 }
-.progress-bar .total{
-    margin-left: 80px;
-    margin-right: 80px;
-    height: 14px;
-    width: 360px;
-    background-color: #222;
-    vertical-align: middle;
-}
-
 .time {
     float: right;
 }
 .time span {
     margin-right: 30px;
+}
+.progress-bar {
+    width: 350px;
+    margin-left: 110px;
+    cursor: pointer;
+    position: relative;
+}
+.progress-bar .bar {
+    width: 350px;
+    height: 14px;
+    margin-top: 5px;
+    background-color: #222;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.progress-bar .current {
+    width: 0px;
+    height: 14px;
+    background-color: #007fd1;
+    z-index: 2;
+    position: relative;
+}
+.music-list .list>li {
+    padding: 5px 0px 5px 40px;
 }
