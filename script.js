@@ -19,7 +19,7 @@ musicPlay.onplay = function(){
         var min = Math.floor(musicPlay.currentTime/60)
         var sec = Math.floor(musicPlay.currentTime%60) + ''
         sec = sec.length === 2 ? sec : '0' + sec
-        $('.play .time').innerText = min + '：' + sec
+        $('.play .time .current-time').innerText = min + '：' + sec
     },1000)
 }
 musicPlay.onpause = function(){
