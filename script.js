@@ -16,8 +16,8 @@ musicPlay.ontimeupdate = function(){
 musicPlay.onplay = function(){
     $('.music-list ')
     var clock = setInterval(function(){
-        var min = Math.floor(musicPlay.currentTime)/60
-        var sec = Math.floor(musicPlay.currentTime)%60 + ''
+        var min = Math.floor(musicPlay.currentTime/60)
+        var sec = Math.floor(musicPlay.currentTime%60) + ''
         sec = sec.length === 2 ? sec : '0' + sec
         $('.progress-bar .time .current-time').innerText = min + ':' + sec
     },1000)
