@@ -82,5 +82,12 @@ main {
     position: relative;
 }
 .music-list .list>li {
-    padding: 5px 0px 5px 40px;
+    padding: 5px 0px 5px 20px;
+}
+.music-list .list>li:hover {
+    background-color: #222;
+    cursor: pointer;
+}
+.music-list .list .fa {
+    margin-right: 20px;
 }
