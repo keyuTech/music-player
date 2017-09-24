@@ -11,18 +11,32 @@ getMusicList(function(list){
 
 musicPlay.ontimeupdate = function(){
     $('.progress-bar .current').style.width = (this.currentTime/this.duration*100) + '%'
-    console.log($('.progress-bar .current').style.width)
-    var min = Math.floor(this.currentTime/60)
-    var sec = Math.floor(this.currentTime%60)
-    sec < 10 ? '0' + sec : '' + sec
 }
+
+musicPlay.onplay = function(){
+    $('.music-list ')
+    var clock = setInterval(function(){
+        var min = Math.floor(this.currentTime/60)
+        var sec = Math.floor(this.currentTime%60)
+        sec < 10 ? '0' + sec : '' + sec
+        $('.progress-bar .time').innerText = min + ':' + sec
+    },1000)
+}
+musicPlay.onpause = function(){
+    clearInterval(clock)
+}
+
+$('.control .playing').addEventListenner('click', function(){
+    audio.pause()
+}, false)
+
 
 function $(selector){
     return document.querySelector(selector)
 }
 function getMusicList(callback){
     var xhr = new XMLHttpRequest()
-    xhr.open('GET', '/music.json', true)
+    xhr.open('GET', 'music.json', true)
     xhr.onload = function(){
         if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
             callback(JSON.parse(this.responseText))
@@ -37,7 +51,7 @@ function getMusicList(callback){
 }
 
 function loadMusic(musicObj){
-    console.log('musicPlay begin play', musicPlay)
+    console.log('musicPlay begin play+++', musicPlay)
     musicPlay.src = musicObj.src
     $('.infor .name').innerText = musicObj.title
     $('.infor .author').innerText = musicObj.author
