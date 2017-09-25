@@ -71,6 +71,23 @@ $('.play .bar').onclick = function(e){
     musicPlay.currentTime = percent * musicPlay.duration
 }
 
+//点击音乐列表播放音乐
+$('.music-list .list').onclick = function(e){
+    if(e.target.tagName.toLowerCase() === 'li'){
+        for(var i; i < this.children.length; i++){
+            if(this.children[i] === e.target){
+                currentIndex = i
+            }
+        }
+        loadMusic(musicList[currentIndex])
+    }
+}
+
+//
+// musicPlay.onplay = function(){
+
+// }
+
 //AJAX获取数据
 function getMusicList(callback){
     var xhr = new XMLHttpRequest()
