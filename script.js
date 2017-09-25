@@ -1,18 +1,25 @@
 
 
-
+var musicList = []
 var currentIndex = 0
 var musicPlay = new Audio()
 musicPlay.autoplay = true
 
+function $(selector){
+    return document.querySelector(selector)
+}
+
 getMusicList(function(list){
+    musicList = list
     loadMusic(list[currentIndex])
 })
 
+//播放进度条
 musicPlay.ontimeupdate = function(){
     $('.progress-bar .current').style.width = (this.currentTime/this.duration*100) + '%'
 }
 
+//播放时间
 musicPlay.onplay = function(){
     $('.music-list ')
     var clock = setInterval(function(){
@@ -26,14 +33,34 @@ musicPlay.onpause = function(){
     clearInterval(clock)
 }
 
+//暂停/播放
 $('.control .playing').addEventListener('click', function(){
-    audio.pause()
+    if(musicPlay.paused){
+        musicPlay.play()
+        this.querySelector('.fa').classList.add('fa-pause')
+        this.querySelector('.fa').classList.remove('fa-play')
+        
+    }else{
+        musicPlay.pause()
+        this.querySelector('.fa').classList.add('fa-play')
+        this.querySelector('.fa').classList.remove('fa-pause')
+    }
+    
 }, false)
 
+//下一曲
+$('.play .forward').addEventListener('click', function(){
+    currentIndex = (++currentIndex)%musicList.length
+    console.log(currentIndex)
+    loadMusic(musicList[currentIndex])
+}, false)
+//上一曲
+$('.play .forward').addEventListener('click', function(){
+    currentIndex = (--currentIndex)%musicList.length
+    loadMusic(musicList[currentIndex])
+}, false)
 
-function $(selector){
-    return document.querySelector(selector)
-}
+//AJAX获取数据
 function getMusicList(callback){
     var xhr = new XMLHttpRequest()
     xhr.open('GET', 'music.json', true)
@@ -50,8 +77,9 @@ function getMusicList(callback){
     xhr.send()
 }
 
+//加载歌曲信息
 function loadMusic(musicObj){
-    console.log('musicPlay begin play+++', musicPlay)
+    console.log('musicPlay begin play', musicPlay)
     musicPlay.src = musicObj.src
     $('.infor .name').innerText = musicObj.title
     $('.infor .author').innerText = musicObj.author
