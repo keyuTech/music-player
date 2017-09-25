@@ -104,5 +104,5 @@ function createList(list){
         eachSong.innerText = musicObj.title + ' - ' + musicObj.author
         playList.appendChild(eachSong)
     })
-    $('.musicList .list').appendChild(playList)
+    $('.music-list .list').appendChild(playList)
 }
