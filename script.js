@@ -48,17 +48,17 @@ $('.control .playing').addEventListener('click', function(){
 }, false)
 
 //下一曲
-$('.play .forward').addEventListener('click', function(){
+$('.play .forward').onclick = function(){
     currentIndex = (++currentIndex)%musicList.length
     console.log(musicList)
     console.log(currentIndex)
     loadMusic(musicList[currentIndex])
-}, false)
+}
 //上一曲
-$('.play .forward').addEventListener('click', function(){
+$('.play .forward').onclick = function(){
     currentIndex = (--currentIndex)%musicList.length
     loadMusic(musicList[currentIndex])
-}, false)
+}
 
 //AJAX获取数据
 function getMusicList(callback){
