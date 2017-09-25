@@ -74,11 +74,12 @@ $('.play .bar').onclick = function(e){
 //点击音乐列表播放音乐
 $('.music-list .list').onclick = function(e){
     if(e.target.tagName.toLowerCase() === 'li'){
-        for(var i; i < this.children.length; i++){
+        for(var i = 0; i < this.children.length; i++){
             if(this.children[i] === e.target){
                 currentIndex = i
             }
         }
+        console.log(currentIndex)
         loadMusic(musicList[currentIndex])
     }
 }
