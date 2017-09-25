@@ -95,4 +95,5 @@ function loadMusic(musicObj){
     musicPlay.src = musicObj.src
     $('.infor .name').innerText = musicObj.title
     $('.infor .author').innerText = musicObj.author
+    $('body').style.backgroundImage = 'url(' + musicObj.img + ')'
 }
