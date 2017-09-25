@@ -47,6 +47,12 @@ $('.control .playing').addEventListener('click', function(){
     
 }, false)
 
+//播放完成后自动播放下一曲
+musicPlay.onended = function(){
+    currentIndex = (++currentIndex)%musicList.length
+    loadMusic(musicList[currentIndex])
+}
+
 //下一曲
 $('.play .forward').onclick = function(){
     currentIndex = (++currentIndex)%musicList.length
@@ -62,7 +68,7 @@ $('.play .back').onclick = function(){
 
 //拖动进度条
 $('.play .bar').onclick = function(e){
-    var percent = e.offsetX / parseInt(getComputedStyle(this))
+    var percent = e.offsetX / parseInt(getComputedStyle(this).width)
     musicPlay.currentTime = percent * musicPlay.duration
 }
 
