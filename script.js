@@ -21,7 +21,6 @@ musicPlay.ontimeupdate = function(){
 
 //播放时间
 musicPlay.onplay = function(){
-    $('.music-list ')
     var clock = setInterval(function(){
         var min = Math.floor(musicPlay.currentTime/60)
         var sec = Math.floor(musicPlay.currentTime%60) + ''
@@ -51,6 +50,7 @@ $('.control .playing').addEventListener('click', function(){
 //下一曲
 $('.play .forward').addEventListener('click', function(){
     currentIndex = (++currentIndex)%musicList.length
+    console.log(musicList)
     console.log(currentIndex)
     loadMusic(musicList[currentIndex])
 }, false)
