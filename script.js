@@ -60,6 +60,12 @@ $('.play .back').onclick = function(){
     loadMusic(musicList[currentIndex])
 }
 
+//拖动进度条
+$('.play .bar').onclick = function(e){
+    var percent = e.offsetX / parseInt(getComputedStyle(this))
+    musicPlay.currentTime = percent * musicPlay.duration
+}
+
 //AJAX获取数据
 function getMusicList(callback){
     var xhr = new XMLHttpRequest()
