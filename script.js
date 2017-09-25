@@ -12,6 +12,7 @@ function $(selector){
 getMusicList(function(list){
     musicList = list
     loadMusic(list[currentIndex])
+    createList(list)
 })
 
 //播放进度条
@@ -56,8 +57,6 @@ musicPlay.onended = function(){
 //下一曲
 $('.play .forward').onclick = function(){
     currentIndex = (++currentIndex)%musicList.length
-    console.log(musicList)
-    console.log(currentIndex)
     loadMusic(musicList[currentIndex])
 }
 //上一曲
@@ -91,9 +90,19 @@ function getMusicList(callback){
 
 //加载歌曲信息
 function loadMusic(musicObj){
-    console.log('musicPlay begin play', musicPlay)
     musicPlay.src = musicObj.src
     $('.infor .name').innerText = musicObj.title
     $('.infor .author').innerText = musicObj.author
     $('body').style.backgroundImage = 'url(' + musicObj.img + ')'
+}
+
+//创建播放列表
+function createList(list){
+    var playList = document.createDocumentFragment()
+    list.forEach(function(musicObj) {
+        var eachSong = document.createElement('li')
+        eachSong.innerText = musicObj.title + ' - ' + musicObj.author
+        playList.appendChild(eachSong)
+    })
+    $('.musicList .list').appendChild(playList)
 }
