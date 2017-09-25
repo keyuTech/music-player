@@ -55,8 +55,8 @@ $('.play .forward').onclick = function(){
     loadMusic(musicList[currentIndex])
 }
 //上一曲
-$('.play .forward').onclick = function(){
-    currentIndex = (--currentIndex)%musicList.length
+$('.play .back').onclick = function(){
+    currentIndex = (musicList.length + --currentIndex)%musicList.length
     loadMusic(musicList[currentIndex])
 }
 
